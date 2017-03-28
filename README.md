@@ -121,47 +121,22 @@ Sometimes, we'll receive a number — well, we know it's a number, as we've seen
 
 Luckily, JavaScript gives us tools to turn these strings into proper numbers (that is, numbers that JavaScript understands).
 
-### `parseInt()`
+### `Number()`
 
-The first such tool is the function `parseInt()`, which accepts two arguments: the value to parse and the base of the value being parsed. _Usually_ you will want to work with base 10, so a typical call to `parseInt()` looks like
+The first such tool is the function `Number()`, which accepts one argument: the value to parse. 
+So a typical call to `Number()` looks like
 
 ``` javascript
-parseInt('2', 10) // 2
+Number('2') // 2
 ```
 
-What happens if we pass a representation of a non-integer to `parseInt()`? Let's try it:
+What happens, though, if we pass utter nonsense to `Number()`? Go ahead and try it in the console — something like
 
 ``` javascript
-parseInt('2.2222', 10)
-```
-
-If we enter the above in console, we'll see that `parseInt()` forces the parsed number to be an integer — which makes sense when we think about it, right?
-
-What happens, though, if we pass utter nonsense to `parseInt()`? Go ahead and try it in the console — something like
-
-``` javascript
-parseInt('nonsense!', 10)
+Number('nonsense!')
 ```
 
 What did it return? `NaN`? What is that?
 
 `NaN` stands for "not a number" — pretty handy, right? This is the number (in the JavaScript sense) that JavaScript returns when it can't determine a valid value for a numeric operation.
 
-### `parseFloat()`
-
-Above, we saw that `parseInt()` lops off everything after the decimal point and only returns integers. If we want to preserve decimals, we'll need to use `parseFloat()`.
-
-Unlike `parseInt()`, `parseFloat()` accepts only a single argument, the thing to be parsed. We can use it like so:
-
-``` javascript
-parseFloat('80.123999') // 80.123999
-```
-
-You're now ready to solve the final two tests in this lab, `makeInt(n)` and `preserveDecimal(n)`.
-
-
-## Resources
-
-- `parseInt()`: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
-
-- `parseFloat()`: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat
